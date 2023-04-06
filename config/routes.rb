@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  use_doorkeeper
+  use_doorkeeper do 
+    skip_controllers :authentications, :applications, :authorized_applications
+  end
   root "bookmarks#index"
   devise_for :users
   resources :bookmarks
