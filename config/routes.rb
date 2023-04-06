@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   end
   root "bookmarks#index"
   devise_for :users
-  resources :bookmarks
+  namespace :api do
+    resources :bookmarks, only: %i[index]
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
